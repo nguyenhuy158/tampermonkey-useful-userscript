@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Keyword Highlighter",
+    "version": "1.0",
+    "description": "Automatically highlights predefined keywords on any page.",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
