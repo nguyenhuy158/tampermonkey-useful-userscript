@@ -1,45 +1,34 @@
 // ==UserScript==
-// @name         Auto Keyword Highlighter
+// @name         Auto Keyword Highlighter (Lightweight)
 // @namespace    https://yourdomain.com/
-// @version      1.0
-// @description  Automatically highlight predefined keywords on any webpage
+// @version      1.1
+// @description  Highlight keywords efficiently
 // @match        *://*/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
 
 (function () {
-    'use strict';
+  'use strict';
 
-    // === 1. Define your keywords here ===
-    const KEYWORDS = ["Odoo", "Python", "backend", "API", "Docker"];
+  const KEYWORDS = ["Odoo", "Python", "backend", "API", "Docker"];
+  const STYLE = "background: yellow; color: black; border-radius: 3px; padding:1px 2px;";
+  const regex = new RegExp(`\\b(${KEYWORDS.join("|")})\\b`, "gi");
 
-    // === 2. Highlight style ===
-    const HIGHLIGHT_STYLE = `
-        background-color: yellow;
-        color: black;
-        padding: 2px 4px;
-        border-radius: 3px;
-    `;
-
-    // === 3. Function to highlight ===
-    function highlightKeywords() {
-        const elements = document.querySelectorAll("p, span, div, li, td, a, h1, h2, h3");
-        KEYWORDS.forEach((word) => {
-            const regex = new RegExp(`(${word})`, "gi");
-            elements.forEach((el) => {
-                if (el.children.length === 0 && el.textContent.match(regex)) {
-                    el.innerHTML = el.innerHTML.replace(regex, `<span style="${HIGHLIGHT_STYLE}">$1</span>`);
-                }
-            });
-        });
+  function walk(node) {
+    if (node.nodeType === 3) { // text node
+      const text = node.textContent;
+      if (regex.test(text)) {
+        const span = document.createElement("span");
+        span.innerHTML = text.replace(regex, `<span style="${STYLE}">$1</span>`);
+        node.replaceWith(span);
+      }
+    } else if (node.nodeType === 1 && node.tagName !== "SCRIPT" && node.tagName !== "STYLE") {
+      for (let i = 0; i < node.childNodes.length; i++) walk(node.childNodes[i]);
     }
+  }
 
-    // === 4. Run after page loaded ===
-    window.addEventListener("load", () => {
-        highlightKeywords();
-        // Optional: Re-run when DOM changes
-        const observer = new MutationObserver(() => highlightKeywords());
-        observer.observe(document.body, { childList: true, subtree: true });
-    });
+  window.addEventListener("load", () => {
+    walk(document.body);
+  });
 })();
