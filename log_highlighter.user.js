@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Log Highlighter
 // @namespace    https://yourdomain.com/
-// @version      1.0
+// @version      1.2
 // @description  Colorize log levels, HTTP methods and status codes in the Techcoop deploy dashboard log viewer
-// @match        *://deploy*.techcoop.dev/*
+// @match        *://deploy-dev.techcoop.dev/*
+// @match        *://deploy.techcoop.dev/*
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
