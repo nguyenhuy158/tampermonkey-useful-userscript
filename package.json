@@ -5,9 +5,11 @@
   "description": "Collection of Tampermonkey userscripts",
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test test/*.test.mjs",
+    "test:video": "node test/video/record-log-highlighter.mjs"
   },
   "devDependencies": {
-    "jsdom": "^25.0.0"
+    "jsdom": "^25.0.0",
+    "playwright": "^1.62.1"
   }
 }
