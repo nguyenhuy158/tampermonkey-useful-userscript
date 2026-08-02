@@ -1,0 +1,13 @@
+{
+  "name": "tampermonkey-useful-userscript",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Collection of Tampermonkey userscripts",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0"
+  }
+}

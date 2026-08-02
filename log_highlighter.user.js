@@ -71,32 +71,6 @@
     for (const child of children) walk(child);
   }
 
-  // --- Auto-pin the log viewer ---
-  // Click the "Pin" button once each time it appears (e.g. entering the Logs tab).
-  // Exact-match "Pin" so a toggled "Unpin" button is never clicked back.
-  const clickedPins = new WeakSet();
-
-  function tryAutoPin() {
-    for (const btn of document.querySelectorAll('button')) {
-      if (clickedPins.has(btn)) continue;
-      const label = btn.textContent.trim().toLowerCase();
-      if (label === 'pin' || label === '📌 pin') {
-        clickedPins.add(btn);
-        btn.click();
-      }
-    }
-  }
-
-  let pinScheduled = false;
-  function schedulePin() {
-    if (pinScheduled) return;
-    pinScheduled = true;
-    setTimeout(() => {
-      pinScheduled = false;
-      tryAutoPin();
-    }, 300);
-  }
-
   const observer = new MutationObserver((mutations) => {
     for (const m of mutations) {
       for (const added of m.addedNodes) {
@@ -104,12 +78,10 @@
         walk(added);
       }
     }
-    schedulePin();
   });
 
   function start() {
     walk(document.body);
-    tryAutoPin();
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
