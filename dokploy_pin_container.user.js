@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Sidekick — Dokploy Pin Log Container
 // @namespace    https://github.com/nguyenhuy158
-// @version      0.4.0
-// @description  Remembers the compose service you pinned in Dokploy's Logs tab and re-selects its container after redeploys (matches any self-hosted Dokploy)
-// @match        *://*/*
+// @version      0.4.1
+// @description  Remembers the compose service you pinned in Dokploy's Logs tab and re-selects its container after redeploys
+// @match        *://deploy-dev.techcoop.dev/*
+// @match        *://deploy.techcoop.dev/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==

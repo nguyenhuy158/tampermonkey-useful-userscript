@@ -1,9 +1,14 @@
 // ==UserScript==
 // @name         Sidekick — Odoo Dev Toolkit
 // @namespace    https://github.com/nguyenhuy158
-// @version      0.4.0
+// @version      0.4.1
 // @description  Odoo dev panel (field detector, RPC inspector, model browser, view inspector, domain tester, ORM eval, i18n gaps, noupdate, context viewer) + fetch/XHR interceptor catching missing view fields before the client crashes
-// @match        *://*/*
+// @match        *://localhost/*
+// @match        *://127.0.0.1/*
+// @match        *://*.techcoop.dev/*
+// @match        *://*.techcoop.vn/*
+// @exclude      *://deploy-dev.techcoop.dev/*
+// @exclude      *://deploy.techcoop.dev/*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==

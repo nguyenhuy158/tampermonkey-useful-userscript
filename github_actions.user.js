@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sidekick — GitHub Actions Helpers
 // @namespace    https://github.com/nguyenhuy158
-// @version      0.4.0
+// @version      0.4.1
 // @description  Runner badge, back-to-PR pill and an animation kill-switch on GitHub Actions run pages
 // @match        https://github.com/*
 // @grant        none
