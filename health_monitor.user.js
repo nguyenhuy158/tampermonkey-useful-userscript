@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Website Health Monitor
 // @namespace    https://github.com/nguyenhuy158
-// @version      1.0
-// @description  Poll configured websites from the browser, show a status widget on every page and notify on up/down transitions
-// @match        *://*/*
+// @version      1.1
+// @description  Poll configured websites from the browser, show a status widget on Google pages and notify on up/down transitions
+// @match        *://www.google.com/*
+// @match        *://google.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
