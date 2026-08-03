@@ -1,9 +1,15 @@
 // ==UserScript==
 // @name         Auto Keyword Highlighter (Lightweight)
 // @namespace    https://yourdomain.com/
-// @version      1.1
+// @version      1.2
 // @description  Highlight keywords efficiently
 // @match        *://*/*
+// @exclude      *://*.zalo.me/*
+// @exclude      *://zalo.me/*
+// @exclude      *://*.slack.com/*
+// @exclude      *://*.facebook.com/*
+// @exclude      *://facebook.com/*
+// @exclude      *://*.fb.com/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
